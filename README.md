@@ -3,6 +3,15 @@
 LFCS(Linux Foundation Certified Sysadmin) 준비를 위한 치트시트, 랩, 스크립트를 정리한 저장소입니다.
 
 ## 구성
+
+## Study Links
+- [00-overall](docs/00-overall/study-plan.md)
+- [01-operations](docs/01-operations/cheatsheet.md)
+- [02-networking](docs/02-networking/cheatsheet.md)
+- [03-storage](docs/03-storage/cheatsheet.md)
+- [04-users-process](docs/04-users-process/cheatsheet.md)
+- [05-security](docs/05-security/cheatsheet.md)
+
 - **docs/**: 도메인별 이론 요약 & 명령어 치트시트, 실습 가이드
 - **scripts/**: 반복 실습용 스크립트 (shellcheck 통과)
 - **labs/**: VM, 컨테이너, 네트워킹 등 시나리오형 실습
