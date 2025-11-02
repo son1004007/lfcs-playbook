@@ -8,6 +8,102 @@ LFCS(Linux Foundation Certified Sysadmin) 준비를 위한 치트시트, 랩, �
 - **labs/**: VM, 컨테이너, 네트워킹 등 시나리오형 실습
 - **.github/workflows/**: CI (shellcheck, markdownlint)
 
+---
+
+# **LFCS 만점 합격자**가 Reddit 등에 올린 후기
+
+
+## 🎯 LFCS 만점 합격자 팁 요약 (한글 해설)
+
+### 1️⃣ **Practice, practice, practice! (실습이 전부다)**
+
+> “읽는 것보다 명령을 직접 실행하는 게 중요하다.”
+
+* LFCS는 필기시험이 아니라 **실제 리눅스 터미널에서 문제를 해결**하는 시험입니다.
+* 단순히 `systemctl` 옵션을 외우는 게 아니라, **문제상황을 해결할 수 있는 조합을 익혀야 합니다.**
+* 추천 방법:
+
+  * GitHub에 만든 `scripts/` 폴더의 랩을 반복 실행
+  * `man`, `info`, `/usr/share/doc` 참고
+  * KodeKloud의 “Linux Challenges”나 “LFCS Practice Labs” 추천 (무료 섹션도 충분히 유용)
+
+---
+
+### 2️⃣ **Search the right way (명령 검색법 익히기)**
+
+> “명령을 까먹었을 땐 man -k, man -K 로 검색하라.”
+
+* `man -k <keyword>` → 명령 요약 검색 (예: `man -k acl`)
+  → “어떤 명령이 관련되어 있는가” 찾기
+* `man -K <keyword>` → **man 페이지 전체 내용**을 본문 검색 (느리지만 확실함)
+* 시험 중 인터넷 검색은 불가, **man만 사용 가능**하므로 이 스킬은 필수입니다.
+
+---
+
+### 3️⃣ **Install `tldr` immediately (시험 시작하자마자 tldr 설치)**
+
+> “tldr 패키지를 설치해라 — 명령어 예시 한 줄로 정리해준다.”
+
+* `sudo apt install tldr -y` (또는 `dnf install tldr -y`)
+* 사용 예시:
+
+  * `tldr find` → `find` 명령의 예시 5줄 요약
+  * `tldr tar` → 압축 명령 빠른 참고
+* **시험 중 man을 읽기엔 시간이 부족할 때** 유용합니다.
+
+---
+
+### 4️⃣ **Understand the man page layout (man 페이지 구조 파악)**
+
+> “man 페이지에서 필요한 정보를 빠르게 찾을 수 있어야 한다.”
+
+* 키워드 검색: `/word` (아래 찾기) / `?word` (위로 찾기)
+* 대소문자 무시 검색: `-i`
+* 섹션 순서 파악:
+
+  * NAME / SYNOPSIS / DESCRIPTION / OPTIONS / FILES / EXAMPLES …
+* **옵션 섹션과 예시(EXAMPLES) 섹션은 항상 맨 아래** → 바로 `G`로 이동
+* 시험에서는 `man`, `--help`, `/etc/*` 파일 구조만으로 해결해야 하는 문제가 많습니다.
+
+---
+
+### 5️⃣ **Take your time reading the questions (문제 꼼꼼히 읽기)**
+
+> “연습시험 때도 이걸 놓쳐서 틀렸다.”
+
+* LFCS는 “문제 해석 실수”가 실제 실패의 1순위입니다.
+  예를 들어,
+
+  * “모든 사용자가 **읽기 가능하지만** 쓰기는 **안 된다**” → `chmod 644`
+  * “특정 그룹에만 쓰기 권한” → ACL 문제일 가능성 높음
+* 문제를 읽고 **핵심 요구사항을 한 줄 메모** 후 커맨드를 입력하세요.
+
+---
+
+## 📘 정리 요약표
+
+| 팁                      | 핵심 요약          | 명령 예시                          |
+| ---------------------- | -------------- | ------------------------------ |
+| 1. Practice            | 실습이 최우선        | `lab`, `scripts` 직접 실행         |
+| 2. Search commands     | man에서 검색       | `man -k`, `man -K`, `/keyword` |
+| 3. Use tldr            | 간단 예시 보기       | `apt install tldr`, `tldr tar` |
+| 4. Man page navigation | 구조 파악, 검색 키 사용 | `/`, `?`, `n`, `N`, `-i`       |
+| 5. Read carefully      | 요구사항 정확히 이해    | “읽기만”, “쓰기금지” 등 키워드 구분         |
+
+---
+
+## 🧠 보너스 (실제 응시 팁)
+
+* **시험 환경**: Ubuntu 22.04 또는 CentOS Stream 9 기반 (LF 랜덤 선택)
+* **시험 중 허용 도구**:
+
+  * `man`, `--help`, `/usr/share/doc`, `tldr`
+  * `bash` 내장 도구(`grep`, `sed`, `awk`, `find`, `vim`, `nano`)
+* **인터넷 접속 불가**, **복붙 제한** (CLI 직접 타이핑해야 함)
+* **시간 관리**: 2시간 동안 20~25문항, 문제당 4~6분 이내 해결이 이상적
+
+
+---
 
 https://training.linuxfoundation.org/certification/linux-foundation-certified-sysadmin-lfcs/
 아래는 **Debian/Ubuntu 계열** 기준으로 LFCS 도메인별 핵심 개념과 실무 명령어/설정 경로를 **시험 친화적으로** 정리한 "텍스트 치트시트"입니다. (Ubuntu 22.04/24.04, systemd, netplan, nftables/ufw 기준)
